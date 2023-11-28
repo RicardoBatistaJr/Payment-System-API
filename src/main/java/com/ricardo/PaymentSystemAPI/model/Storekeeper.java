@@ -1,19 +1,25 @@
 package com.ricardo.PaymentSystemAPI.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
-public class Storekeeper extends User{
+public class Storekeeper extends User implements Serializable {
 
-	@Column(unique = true)
-	private int cnpj;
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "cnpj", unique = true)
+	@Id
+	private String cnpj;
 	
 	public Storekeeper() {
 		super();
 	};
 	
-	public Storekeeper(String name, String email, String password,int cnpj) {
+	public Storekeeper(String name, String email, String password, String cnpj) {
 		super(name, email, password);
 		this.cnpj = cnpj;
 	}
@@ -22,11 +28,11 @@ public class Storekeeper extends User{
 		// TODO Auto-generated method stub
 	}
 
-	public int getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	

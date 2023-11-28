@@ -1,8 +1,10 @@
 package com.ricardo.PaymentSystemAPI.model;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public abstract class User {
 	
 	private String name;
@@ -11,9 +13,6 @@ public abstract class User {
 	private String email;
 	
 	private String password;
-	
-	@OneToOne
-	Wallet wallet;
 	
 	public User() {};
 	
