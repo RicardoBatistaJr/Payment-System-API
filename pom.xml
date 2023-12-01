@@ -50,6 +50,10 @@
 		    <artifactId>spring-cloud-starter-openfeign</artifactId>
 		    <version>3.1.4</version>
 		</dependency>
+		<dependency> <groupId>br.com.caelum.stella</groupId> 
+	    	<artifactId>caelum-stella-core</artifactId> 
+	    	<version>2.1.2</version> 
+		</dependency>
 
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>

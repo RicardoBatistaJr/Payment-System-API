@@ -23,8 +23,6 @@ public abstract class User {
 		this.password = password;
 	}
 
-	public abstract void userTransaction();
-
 	public String getName() {
 		return name;
 	}

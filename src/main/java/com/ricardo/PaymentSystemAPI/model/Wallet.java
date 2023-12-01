@@ -1,20 +1,21 @@
 package com.ricardo.PaymentSystemAPI.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Wallet {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private double money;
 	
-    @OneToOne
-    @JoinColumn(name = "customer_id", unique = true)
-    private Customer customer;
+//    @OneToOne
+//    @JoinColumn(name = "user_id", unique = true)
+//    private User customer;
 	
 	public Wallet() {
 	}

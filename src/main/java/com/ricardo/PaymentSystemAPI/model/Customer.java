@@ -6,9 +6,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
-@Entity
+@Entity(name="customer")
 public class Customer extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -17,7 +18,9 @@ public class Customer extends User implements Serializable {
 	@Id
 	private String cpf;
 	
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wallet_id", referencedColumnName = "id")
     private Wallet wallet;
 
 	public Customer() {};
@@ -27,7 +30,6 @@ public class Customer extends User implements Serializable {
 		this.cpf = cpf;
 	}
 	
-	@Override
 	public void userTransaction() {
 		// TODO Auto-generated method stub
 	}
@@ -37,6 +39,14 @@ public class Customer extends User implements Serializable {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public Wallet getWallet() {
+		return wallet;
+	}
+
+	public void setWallet(Wallet wallet) {
+		this.wallet = wallet;
 	}
 	
 	

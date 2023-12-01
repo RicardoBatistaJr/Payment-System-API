@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ricardo.PaymentSystemAPI.service.PaymentService;
 
-import handler.AuthenticationHandler;
-
 @RestController
 @RequestMapping(value = "/payment")
 public class PaymentController {
@@ -20,15 +18,13 @@ public class PaymentController {
 	@Autowired
 	private PaymentService service;
 	
-
-	
 	@PostMapping(value = "/transaction")
 	@ResponseStatus(HttpStatus.OK)
-	String transaction(@RequestParam ("value") double value,
-							@RequestParam ("sender") String sender,
-							@RequestParam ("recipient") String recipient) {
+	void transaction(@RequestParam ("sender") String sender,
+							@RequestParam ("recipient") String recipient,
+							@RequestParam ("value") double value) {
 		
-		return service.getTransaction();
+		service.sendTransaction(sender, recipient, value);
 		
 	};
 	
